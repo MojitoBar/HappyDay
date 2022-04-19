@@ -10,6 +10,8 @@
 		B7AB0420280E74E3002E86D3 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB041F280E74E3002E86D3 /* NotifyViewController.swift */; };
 		B7AB0422280E74EB002E86D3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0421280E74EB002E86D3 /* UserViewController.swift */; };
 		B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */; };
+		B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7AB0427280E7D1C002E86D3 /* SnapKit */; };
+		B7AB042B280E81E8002E86D3 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B7AB042A280E81E8002E86D3 /* Charts */; };
 		B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA23C280E7166003D1B8F /* AppDelegate.swift */; };
 		B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA23E280E7166003D1B8F /* SceneDelegate.swift */; };
 		B7BBA241280E7166003D1B8F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA240280E7166003D1B8F /* TabBarViewController.swift */; };
@@ -39,6 +41,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */,
+				B7AB042B280E81E8002E86D3 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +115,10 @@
 			dependencies = (
 			);
 			name = Scouter;
+			packageProductDependencies = (
+				B7AB0427280E7D1C002E86D3 /* SnapKit */,
+				B7AB042A280E81E8002E86D3 /* Charts */,
+			);
 			productName = Scouter;
 			productReference = B7BBA239280E7166003D1B8F /* Scouter.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +147,10 @@
 				Base,
 			);
 			mainGroup = B7BBA230280E7166003D1B8F;
+			packageReferences = (
+				B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B7AB0429280E81E8002E86D3 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = B7BBA23A280E7166003D1B8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -380,6 +392,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		B7AB0429280E81E8002E86D3 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7AB0427280E7D1C002E86D3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B7AB042A280E81E8002E86D3 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7AB0429280E81E8002E86D3 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7BBA231280E7166003D1B8F /* Project object */;
 }
