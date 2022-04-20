@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     // MARK: - lazy variables
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Scouter"
+        label.text = "HappyDay"
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.textColor = .primary
         return label
@@ -71,8 +71,6 @@ class HomeViewController: UIViewController {
         var chart = LineChartView()
         chart.doubleTapToZoomEnabled = true
         chart.rightAxis.enabled = false
-        chart.xAxis.enabled = false
-        chart.xAxis.drawGridLinesEnabled = false
         chart.legend.enabled = false
         return chart
     }()
