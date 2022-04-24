@@ -7,39 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B77137BE280EF7DC00C47C4C /* CustomBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77137BD280EF7DC00C47C4C /* CustomBarChart.swift */; };
-		B77137C0280EF83B00C47C4C /* CustomPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77137BF280EF83B00C47C4C /* CustomPieChart.swift */; };
-		B77137C2280EFD8600C47C4C /* CustomLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77137C1280EFD8600C47C4C /* CustomLineChart.swift */; };
-		B7AB0420280E74E3002E86D3 /* NotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB041F280E74E3002E86D3 /* NotifyViewController.swift */; };
-		B7AB0422280E74EB002E86D3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0421280E74EB002E86D3 /* UserViewController.swift */; };
 		B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */; };
 		B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7AB0427280E7D1C002E86D3 /* SnapKit */; };
-		B7AB042B280E81E8002E86D3 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B7AB042A280E81E8002E86D3 /* Charts */; };
 		B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA23C280E7166003D1B8F /* AppDelegate.swift */; };
 		B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA23E280E7166003D1B8F /* SceneDelegate.swift */; };
-		B7BBA241280E7166003D1B8F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA240280E7166003D1B8F /* TabBarViewController.swift */; };
 		B7BBA246280E7167003D1B8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7BBA245280E7167003D1B8F /* Assets.xcassets */; };
 		B7BBA249280E7167003D1B8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7BBA247280E7167003D1B8F /* LaunchScreen.storyboard */; };
 		B7BBA252280E7267003D1B8F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA251280E7267003D1B8F /* HomeViewController.swift */; };
-		B7BBA254280E729F003D1B8F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA253280E729F003D1B8F /* SearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B77137BD280EF7DC00C47C4C /* CustomBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBarChart.swift; sourceTree = "<group>"; };
-		B77137BF280EF83B00C47C4C /* CustomPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPieChart.swift; sourceTree = "<group>"; };
-		B77137C1280EFD8600C47C4C /* CustomLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLineChart.swift; sourceTree = "<group>"; };
-		B7AB041F280E74E3002E86D3 /* NotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyViewController.swift; sourceTree = "<group>"; };
-		B7AB0421280E74EB002E86D3 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B7BBA239280E7166003D1B8F /* HappyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7BBA23C280E7166003D1B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7BBA23E280E7166003D1B8F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B7BBA240280E7166003D1B8F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B7BBA245280E7167003D1B8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7BBA248280E7167003D1B8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7BBA24A280E7167003D1B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7BBA251280E7267003D1B8F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B7BBA253280E729F003D1B8F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +33,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */,
-				B7AB042B280E81E8002E86D3 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,20 +42,9 @@
 		B77137BB280EF7A400C47C4C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				B77137BC280EF7CC00C47C4C /* Charts */,
 				B7BBA251280E7267003D1B8F /* HomeViewController.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		B77137BC280EF7CC00C47C4C /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-				B77137BD280EF7DC00C47C4C /* CustomBarChart.swift */,
-				B77137BF280EF83B00C47C4C /* CustomPieChart.swift */,
-				B77137C1280EFD8600C47C4C /* CustomLineChart.swift */,
-			);
-			path = Charts;
 			sourceTree = "<group>";
 		};
 		B7AB0423280E7AA5002E86D3 /* Extension */ = {
@@ -117,10 +90,6 @@
 		B7BBA250280E723F003D1B8F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B7BBA240280E7166003D1B8F /* TabBarViewController.swift */,
-				B7BBA253280E729F003D1B8F /* SearchViewController.swift */,
-				B7AB041F280E74E3002E86D3 /* NotifyViewController.swift */,
-				B7AB0421280E74EB002E86D3 /* UserViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -143,7 +112,6 @@
 			name = HappyDay;
 			packageProductDependencies = (
 				B7AB0427280E7D1C002E86D3 /* SnapKit */,
-				B7AB042A280E81E8002E86D3 /* Charts */,
 			);
 			productName = Scouter;
 			productReference = B7BBA239280E7166003D1B8F /* HappyDay.app */;
@@ -203,15 +171,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B77137C2280EFD8600C47C4C /* CustomLineChart.swift in Sources */,
-				B7AB0422280E74EB002E86D3 /* UserViewController.swift in Sources */,
-				B7BBA254280E729F003D1B8F /* SearchViewController.swift in Sources */,
-				B77137C0280EF83B00C47C4C /* CustomPieChart.swift in Sources */,
-				B7AB0420280E74E3002E86D3 /* NotifyViewController.swift in Sources */,
-				B7BBA241280E7166003D1B8F /* TabBarViewController.swift in Sources */,
 				B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */,
 				B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */,
-				B77137BE280EF7DC00C47C4C /* CustomBarChart.swift in Sources */,
 				B7BBA252280E7267003D1B8F /* HomeViewController.swift in Sources */,
 				B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */,
 			);
@@ -446,11 +407,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		B7AB042A280E81E8002E86D3 /* Charts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B7AB0429280E81E8002E86D3 /* XCRemoteSwiftPackageReference "Charts" */;
-			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
