@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class HomeViewController: UIViewController {
     let viewModel = HomeViewModel()
@@ -18,14 +19,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTable()
-        
-        viewModel.personObservable
-            .observe(on: MainScheduler.asyncInstance)
-            .bind(to: tableView.rx.items(cellIdentifier: PersonCell.cellId, cellType: PersonCell.self)) { index, item, cell in
-                cell.name.text = item.name
-                cell.phoneNumber.text = item.phoneNumber
-            }
-            .disposed(by: disposeBag)
+        setRx()
     }
     
     // MARK: - ui setting
@@ -35,12 +29,44 @@ class HomeViewController: UIViewController {
         return tableView
     }()
     
+    let dataSource = RxTableViewSectionedReloadDataSource<PersonSection>(configureCell: { dataSource, tableView, indexPath, item in
+        let cell = tableView.dequeueReusableCell(withIdentifier: PersonCell.cellId, for: indexPath) as! PersonCell
+        cell.selectionStyle = .blue
+        cell.phoneNumber.text = item.phoneNumber
+        cell.name.text = item.name
+        
+        return cell
+    })
+    
     // MARK: - table setting
     func setTable() {
         self.view.addSubview(tableView)
+        // 테이블 뷰 델리게이트 세팅
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        // 테이블 뷰 헤더 세팅
+        dataSource.titleForHeaderInSection = { ds, index in
+            return ds.sectionModels[index].header
+        }
+        // 테이블 뷰 셀 세팅
         tableView.register(PersonCell.self, forCellReuseIdentifier: PersonCell.cellId)
+        // 테이블 뷰 레이아웃 세팅
         tableView.snp.makeConstraints {
             $0.leading.trailing.top.bottom.equalTo(self.view)
         }
+    }
+    
+    // MARK: - Rx Setting
+    func setRx() {
+        // 테이블 뷰 데이터 바인딩
+        viewModel.personObservable
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(50)
     }
 }

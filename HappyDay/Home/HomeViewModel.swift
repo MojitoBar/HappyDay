@@ -9,16 +9,18 @@ import Foundation
 import RxRelay
 
 class HomeViewModel {
-    var user: [Person] = []
+    var sections: [PersonSection] = []
 
-    lazy var personObservable = BehaviorRelay<[Person]>(value: user)
+    lazy var personObservable = BehaviorRelay<[PersonSection]>(value: sections)
     
     init() {
-        user = [Person(name: "홍길동", phoneNumber: "010-1234-5678"),
-              Person(name: "홍길동1", phoneNumber: "010-1234-5678"),
-              Person(name: "홍길동2", phoneNumber: "010-1234-5678"),
-              Person(name: "홍길동3", phoneNumber: "010-1234-5678"),
-              Person(name: "홍길동4", phoneNumber: "010-1234-5678"),
-              Person(name: "홍길동5", phoneNumber: "010-1234-5678")]
+        sections = [
+            PersonSection.init(header: "연락처", items: [Person.init(identity: 1, name: "홍길동", phoneNumber: "010-1234-1234"),
+                                                      Person.init(identity: 1, name: "홍길동", phoneNumber: "010-1234-1234"),
+                                                      Person.init(identity: 1, name: "홍길동", phoneNumber: "010-1234-1234"),
+                                                      Person.init(identity: 1, name: "홍길동", phoneNumber: "010-1234-1234"),
+                                                      Person.init(identity: 1, name: "홍길동", phoneNumber: "010-1234-1234"),
+                                                      Person.init(identity: 1, name: "홍길동", phoneNumber: "010-1234-1234")])
+        ]
     }
 }

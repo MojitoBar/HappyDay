@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxDataSources
 
 class PersonCell: UITableViewCell {
     static let cellId = "CellId"
@@ -35,5 +36,28 @@ class PersonCell: UITableViewCell {
             $0.leading.equalTo(name.snp.trailing).offset(20)
             $0.top.bottom.equalTo(0)
         }
+    }
+}
+
+final class PersonTableViewHeaderView: UITableViewHeaderFooterView {
+    static let headerViewId = "PersonTableViewHeaderView"
+    
+}
+
+struct PersonSection {
+    var header: String
+    var items: [Item]
+}
+
+extension PersonSection: AnimatableSectionModelType {
+    typealias Item = Person
+    
+    init(original: PersonSection, items: [Person]) {
+        self = original
+        self.items = items
+    }
+    
+    var identity: String {
+        return header
     }
 }

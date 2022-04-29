@@ -5,9 +5,10 @@
 //  Created by judongseok on 2022/04/29.
 //
 
-import Foundation
+import RxDataSources
 
-struct Person {
+struct Person: IdentifiableType, Equatable {
+    var identity: Int
     var name: String
     var phoneNumber: String
 }
