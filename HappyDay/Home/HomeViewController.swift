@@ -44,12 +44,9 @@ class HomeViewController: UIViewController {
         // 테이블 뷰 델리게이트 세팅
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
-        // 테이블 뷰 헤더 세팅
-        dataSource.titleForHeaderInSection = { ds, index in
-            return ds.sectionModels[index].header
-        }
         // 테이블 뷰 셀 세팅
         tableView.register(PersonCell.self, forCellReuseIdentifier: PersonCell.cellId)
+        tableView.register(PersonTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: PersonTableViewHeaderView.headerViewId)
         // 테이블 뷰 레이아웃 세팅
         tableView.snp.makeConstraints {
             $0.leading.trailing.top.bottom.equalTo(self.view)
@@ -68,5 +65,14 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(50)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let wetherTableViewHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: PersonTableViewHeaderView.headerViewId) as? PersonTableViewHeaderView else {
+            return UIView()
+        }
+        wetherTableViewHeaderView.profileImageVIew.image = UIImage(systemName: "star")
+        wetherTableViewHeaderView.nameLabel.text = "주동석"
+        return wetherTableViewHeaderView
     }
 }
