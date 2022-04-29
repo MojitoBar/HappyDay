@@ -70,13 +70,16 @@ class PersonCell: UITableViewCell {
         self.addSubview(name)
         self.addSubview(phoneNumber)
         
+        name.font = UIFont.systemFont(ofSize: 14)
+        phoneNumber.font = UIFont.systemFont(ofSize: 14)
+        
         name.snp.makeConstraints {
-            $0.leading.equalTo(20)
+            $0.leading.equalTo(16)
             $0.top.bottom.equalTo(0)
         }
         
         phoneNumber.snp.makeConstraints{
-            $0.leading.equalTo(name.snp.trailing).offset(20)
+            $0.leading.equalTo(name.snp.trailing).offset(16)
             $0.top.bottom.equalTo(0)
         }
     }
