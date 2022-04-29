@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B72167E8281C2D7100CBCB70 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167E7281C2D7100CBCB70 /* Person.swift */; };
+		B72167EA281C2DE400CBCB70 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167E9281C2DE400CBCB70 /* PersonCell.swift */; };
+		B72167ED281C2F5B00CBCB70 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B72167EC281C2F5B00CBCB70 /* RxCocoa */; };
+		B72167EF281C2F5B00CBCB70 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B72167EE281C2F5B00CBCB70 /* RxRelay */; };
+		B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167F0281C300800CBCB70 /* HomeViewModel.swift */; };
 		B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */; };
 		B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7AB0427280E7D1C002E86D3 /* SnapKit */; };
 		B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA23C280E7166003D1B8F /* AppDelegate.swift */; };
@@ -17,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B72167E7281C2D7100CBCB70 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		B72167E9281C2DE400CBCB70 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		B72167F0281C300800CBCB70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B7BBA239280E7166003D1B8F /* HappyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7BBA23C280E7166003D1B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72167EF281C2F5B00CBCB70 /* RxRelay in Frameworks */,
+				B72167ED281C2F5B00CBCB70 /* RxCocoa in Frameworks */,
 				B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +53,9 @@
 			isa = PBXGroup;
 			children = (
 				B7BBA251280E7267003D1B8F /* HomeViewController.swift */,
+				B72167E7281C2D7100CBCB70 /* Person.swift */,
+				B72167E9281C2DE400CBCB70 /* PersonCell.swift */,
+				B72167F0281C300800CBCB70 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -112,6 +125,8 @@
 			name = HappyDay;
 			packageProductDependencies = (
 				B7AB0427280E7D1C002E86D3 /* SnapKit */,
+				B72167EC281C2F5B00CBCB70 /* RxCocoa */,
+				B72167EE281C2F5B00CBCB70 /* RxRelay */,
 			);
 			productName = Scouter;
 			productReference = B7BBA239280E7166003D1B8F /* HappyDay.app */;
@@ -144,6 +159,7 @@
 			packageReferences = (
 				B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B7AB0429280E81E8002E86D3 /* XCRemoteSwiftPackageReference "Charts" */,
+				B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = B7BBA23A280E7166003D1B8F /* Products */;
 			projectDirPath = "";
@@ -171,6 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72167EA281C2DE400CBCB70 /* PersonCell.swift in Sources */,
+				B72167E8281C2D7100CBCB70 /* Person.swift in Sources */,
+				B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */,
 				B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */,
 				B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */,
 				B7BBA252280E7267003D1B8F /* HomeViewController.swift in Sources */,
@@ -384,6 +403,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -403,6 +430,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B72167EC281C2F5B00CBCB70 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B72167EE281C2F5B00CBCB70 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
 		B7AB0427280E7D1C002E86D3 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */;
