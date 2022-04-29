@@ -24,6 +24,26 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - ui setting
+    let header: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    let profile: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage.init(systemName: "star")
+        image.tintColor = .black
+        return image
+    }()
+    
+    let userName: UILabel = {
+        let name = UILabel()
+        name.text = "주동석"
+        name.textColor = .black
+        name.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        return name
+    }()
+    
     let titleLabel: UILabel = {
         let title = UILabel()
         title.text = "Happy Day"
@@ -34,16 +54,15 @@ class HomeViewController: UIViewController {
     
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.rowHeight = 100
+        tableView.separatorStyle = .singleLine
         return tableView
     }()
     
     let dataSource = RxTableViewSectionedReloadDataSource<PersonSection>(configureCell: { dataSource, tableView, indexPath, item in
         let cell = tableView.dequeueReusableCell(withIdentifier: PersonCell.cellId, for: indexPath) as! PersonCell
-        cell.selectionStyle = .blue
+        cell.selectionStyle = .none
         cell.phoneNumber.text = item.phoneNumber
         cell.name.text = item.name
-        
         return cell
     })
     
@@ -52,9 +71,27 @@ class HomeViewController: UIViewController {
         self.view.backgroundColor = .white
         
         self.view.addSubview(titleLabel)
+        self.view.addSubview(header)
+        header.addSubview(profile)
+        header.addSubview(userName)
+
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.leading.equalTo(20)
+        }
+        header.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(20)
+            $0.leading.trailing.equalTo(0)
+            $0.height.equalTo(70)
+        }
+        profile.snp.makeConstraints {
+            $0.leading.equalTo(20)
+            $0.top.equalTo(0)
+            $0.width.height.equalTo(50)
+        }
+        userName.snp.makeConstraints {
+            $0.leading.equalTo(profile.snp.trailing).offset(10)
+            $0.top.equalTo(10)
         }
     }
     
@@ -68,13 +105,13 @@ class HomeViewController: UIViewController {
         dataSource.titleForHeaderInSection = { ds, index in
             return ds.sectionModels[index].header
         }
-        tableView.sectionHeaderTopPadding = 1
+        tableView.sectionHeaderTopPadding = 5
         // 테이블 뷰 셀 세팅
         tableView.register(PersonCell.self, forCellReuseIdentifier: PersonCell.cellId)
         tableView.register(PersonTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: PersonTableViewHeaderView.headerViewId)
         // 테이블 뷰 레이아웃 세팅
         tableView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.top.equalTo(header.snp.bottom)
             $0.leading.trailing.bottom.equalTo(self.view)
         }
     }
@@ -96,15 +133,4 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
-
-    
-// Header
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        guard let wetherTableViewHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: PersonTableViewHeaderView.headerViewId) as? PersonTableViewHeaderView else {
-//            return UIView()
-//        }
-//        wetherTableViewHeaderView.profileImageVIew.image = UIImage(systemName: "star")
-//        wetherTableViewHeaderView.nameLabel.text = "주동석"
-//        return wetherTableViewHeaderView
-//    }
 }
