@@ -21,8 +21,6 @@ class HomeViewController: UIViewController {
         setLayout()
         setTable()
         setRx()
-        
-        viewModel.readAddress()
     }
     
     // MARK: - ui setting

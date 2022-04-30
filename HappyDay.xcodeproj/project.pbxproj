@@ -13,6 +13,7 @@
 		B72167EF281C2F5B00CBCB70 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B72167EE281C2F5B00CBCB70 /* RxRelay */; };
 		B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167F0281C300800CBCB70 /* HomeViewModel.swift */; };
 		B72167F4281C429F00CBCB70 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = B72167F3281C429F00CBCB70 /* RxDataSources */; };
+		B782A04C281D8C990018133B /* FetchContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B782A04B281D8C990018133B /* FetchContacts.swift */; };
 		B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */; };
 		B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7AB0427280E7D1C002E86D3 /* SnapKit */; };
 		B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA23C280E7166003D1B8F /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		B72167E7281C2D7100CBCB70 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		B72167E9281C2DE400CBCB70 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		B72167F0281C300800CBCB70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B782A04B281D8C990018133B /* FetchContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContacts.swift; sourceTree = "<group>"; };
 		B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B7BBA239280E7166003D1B8F /* HappyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7BBA23C280E7166003D1B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		B782A04A281D8C890018133B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B782A04B281D8C990018133B /* FetchContacts.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B7AB0423280E7AA5002E86D3 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		B7BBA23B280E7166003D1B8F /* Scouter */ = {
 			isa = PBXGroup;
 			children = (
+				B782A04A281D8C890018133B /* Service */,
 				B72167F5281C6FE000CBCB70 /* Model */,
 				B77137BB280EF7A400C47C4C /* Home */,
 				B7AB0423280E7AA5002E86D3 /* Extension */,
@@ -198,6 +209,7 @@
 				B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */,
 				B7BBA252280E7267003D1B8F /* HomeViewController.swift in Sources */,
 				B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */,
+				B782A04C281D8C990018133B /* FetchContacts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
