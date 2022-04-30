@@ -21,12 +21,21 @@ class HomeViewController: UIViewController {
         setLayout()
         setTable()
         setRx()
+        
+        viewModel.readAddress()
     }
     
     // MARK: - ui setting
     let header: UIView = {
         let view = UIView()
         return view
+    }()
+    
+    let addButton: UIButton  = {
+        let btn = UIButton()
+        btn.setImage(UIImage.init(systemName: "plus"), for: .normal)
+        btn.tintColor = .black
+        return btn
     }()
     
     let profile: UIImageView = {
@@ -72,6 +81,7 @@ class HomeViewController: UIViewController {
         
         self.view.addSubview(titleLabel)
         self.view.addSubview(header)
+        self.view.addSubview(addButton)
         header.addSubview(profile)
         header.addSubview(userName)
 
@@ -92,6 +102,11 @@ class HomeViewController: UIViewController {
         userName.snp.makeConstraints {
             $0.leading.equalTo(profile.snp.trailing).offset(10)
             $0.top.equalTo(10)
+        }
+        addButton.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
+            $0.trailing.equalTo(-10)
+            $0.width.height.equalTo(40)
         }
     }
     
