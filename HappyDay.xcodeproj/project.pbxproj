@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B72167E8281C2D7100CBCB70 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167E7281C2D7100CBCB70 /* Person.swift */; };
+		B72167EA281C2DE400CBCB70 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167E9281C2DE400CBCB70 /* PersonCell.swift */; };
+		B72167ED281C2F5B00CBCB70 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B72167EC281C2F5B00CBCB70 /* RxCocoa */; };
+		B72167EF281C2F5B00CBCB70 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B72167EE281C2F5B00CBCB70 /* RxRelay */; };
+		B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167F0281C300800CBCB70 /* HomeViewModel.swift */; };
+		B72167F4281C429F00CBCB70 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = B72167F3281C429F00CBCB70 /* RxDataSources */; };
+		B782A04C281D8C990018133B /* FetchContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B782A04B281D8C990018133B /* FetchContacts.swift */; };
 		B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */; };
 		B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7AB0427280E7D1C002E86D3 /* SnapKit */; };
 		B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BBA23C280E7166003D1B8F /* AppDelegate.swift */; };
@@ -17,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B72167E7281C2D7100CBCB70 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		B72167E9281C2DE400CBCB70 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		B72167F0281C300800CBCB70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B782A04B281D8C990018133B /* FetchContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContacts.swift; sourceTree = "<group>"; };
 		B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B7BBA239280E7166003D1B8F /* HappyDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7BBA23C280E7166003D1B8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +43,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72167EF281C2F5B00CBCB70 /* RxRelay in Frameworks */,
+				B72167F4281C429F00CBCB70 /* RxDataSources in Frameworks */,
+				B72167ED281C2F5B00CBCB70 /* RxCocoa in Frameworks */,
 				B7AB0428280E7D1C002E86D3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,12 +53,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B72167F5281C6FE000CBCB70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B72167E7281C2D7100CBCB70 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B77137BB280EF7A400C47C4C /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				B7BBA251280E7267003D1B8F /* HomeViewController.swift */,
+				B72167F0281C300800CBCB70 /* HomeViewModel.swift */,
+				B72167E9281C2DE400CBCB70 /* PersonCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B782A04A281D8C890018133B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B782A04B281D8C990018133B /* FetchContacts.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B7AB0423280E7AA5002E86D3 /* Extension */ = {
@@ -74,9 +106,10 @@
 		B7BBA23B280E7166003D1B8F /* Scouter */ = {
 			isa = PBXGroup;
 			children = (
+				B782A04A281D8C890018133B /* Service */,
+				B72167F5281C6FE000CBCB70 /* Model */,
 				B77137BB280EF7A400C47C4C /* Home */,
 				B7AB0423280E7AA5002E86D3 /* Extension */,
-				B7BBA250280E723F003D1B8F /* ViewController */,
 				B7BBA23C280E7166003D1B8F /* AppDelegate.swift */,
 				B7BBA23E280E7166003D1B8F /* SceneDelegate.swift */,
 				B7BBA245280E7167003D1B8F /* Assets.xcassets */,
@@ -85,13 +118,6 @@
 			);
 			name = Scouter;
 			path = HappyDay;
-			sourceTree = "<group>";
-		};
-		B7BBA250280E723F003D1B8F /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +138,9 @@
 			name = HappyDay;
 			packageProductDependencies = (
 				B7AB0427280E7D1C002E86D3 /* SnapKit */,
+				B72167EC281C2F5B00CBCB70 /* RxCocoa */,
+				B72167EE281C2F5B00CBCB70 /* RxRelay */,
+				B72167F3281C429F00CBCB70 /* RxDataSources */,
 			);
 			productName = Scouter;
 			productReference = B7BBA239280E7166003D1B8F /* HappyDay.app */;
@@ -144,6 +173,8 @@
 			packageReferences = (
 				B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B7AB0429280E81E8002E86D3 /* XCRemoteSwiftPackageReference "Charts" */,
+				B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B72167F2281C429F00CBCB70 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = B7BBA23A280E7166003D1B8F /* Products */;
 			projectDirPath = "";
@@ -171,10 +202,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B72167EA281C2DE400CBCB70 /* PersonCell.swift in Sources */,
+				B72167E8281C2D7100CBCB70 /* Person.swift in Sources */,
+				B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */,
 				B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */,
 				B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */,
 				B7BBA252280E7267003D1B8F /* HomeViewController.swift in Sources */,
 				B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */,
+				B782A04C281D8C990018133B /* FetchContacts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +351,7 @@
 				DEVELOPMENT_TEAM = X843D4L2C2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyDay/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "전화번호 접근권한을 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -343,6 +379,7 @@
 				DEVELOPMENT_TEAM = X843D4L2C2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HappyDay/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "전화번호 접근권한을 허용해주세요";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -384,6 +421,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		B72167F2281C429F00CBCB70 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -403,6 +456,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B72167EC281C2F5B00CBCB70 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B72167EE281C2F5B00CBCB70 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B72167EB281C2F5B00CBCB70 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B72167F3281C429F00CBCB70 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B72167F2281C429F00CBCB70 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		B7AB0427280E7D1C002E86D3 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B7AB0426280E7D1C002E86D3 /* XCRemoteSwiftPackageReference "SnapKit" */;
