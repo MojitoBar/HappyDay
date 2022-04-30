@@ -51,13 +51,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B72167F5281C6FE000CBCB70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B72167E7281C2D7100CBCB70 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B77137BB280EF7A400C47C4C /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				B7BBA251280E7267003D1B8F /* HomeViewController.swift */,
-				B72167E7281C2D7100CBCB70 /* Person.swift */,
-				B72167E9281C2DE400CBCB70 /* PersonCell.swift */,
 				B72167F0281C300800CBCB70 /* HomeViewModel.swift */,
+				B72167E9281C2DE400CBCB70 /* PersonCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -89,9 +96,9 @@
 		B7BBA23B280E7166003D1B8F /* Scouter */ = {
 			isa = PBXGroup;
 			children = (
+				B72167F5281C6FE000CBCB70 /* Model */,
 				B77137BB280EF7A400C47C4C /* Home */,
 				B7AB0423280E7AA5002E86D3 /* Extension */,
-				B7BBA250280E723F003D1B8F /* ViewController */,
 				B7BBA23C280E7166003D1B8F /* AppDelegate.swift */,
 				B7BBA23E280E7166003D1B8F /* SceneDelegate.swift */,
 				B7BBA245280E7167003D1B8F /* Assets.xcassets */,
@@ -100,13 +107,6 @@
 			);
 			name = Scouter;
 			path = HappyDay;
-			sourceTree = "<group>";
-		};
-		B7BBA250280E723F003D1B8F /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
