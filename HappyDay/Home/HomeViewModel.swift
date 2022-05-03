@@ -14,17 +14,29 @@ class HomeViewModel {
     
     init() {
         _ = FetchContacts.fetchContactsRx()
-            .map{ data -> [Person] in
-                var persons: [Person] = []
+            .map{ data -> [String:[Person]] in
+                var persons: [String:[Person]] = [:]
                 data.enumerated().forEach { (index, item) in
-                    persons.append(Person(name: item.name, phoneNumber: item.phoneNumber))
+                    if persons[item.name.getFirstChar()] != nil {
+                        persons[item.name.getFirstChar()]!.append(Person(name: item.name, phoneNumber: item.phoneNumber))
+                    }
+                    else {
+                        persons[item.name.getFirstChar()] = [Person(name: item.name, phoneNumber: item.phoneNumber)]
+                    }
                 }
                 return persons
             }
             .map{ persons -> [PersonSection] in
                 var sections: [PersonSection] = []
-                sections.append(PersonSection(header: "ㄱ", items: persons))
+                persons.forEach { (key, value) in
+                    sections.append(PersonSection(header: key, items: value))
+                }
                 return sections
+            }
+            .map{ result -> [PersonSection] in
+                return result.sorted { item1, item2 in
+                    return item1.header < item2.header
+                }
             }
             .bind(to: personObservable)
     }
