@@ -162,6 +162,15 @@ class HomeViewController: UIViewController {
         viewModel.personObservable
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        // SearchBar Text 변경 감지
+        searchBar.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .subscribe(onNext: { changedText in
+                 print("Changed Text ::: \(changedText)")
+            })
+            .disposed(by: disposeBag)
     }
 }
 

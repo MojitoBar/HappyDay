@@ -40,4 +40,8 @@ class HomeViewModel {
             }
             .bind(to: personObservable)
     }
+    
+    func filterSearchText() {
+        
+    }
 }
