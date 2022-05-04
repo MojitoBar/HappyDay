@@ -24,6 +24,14 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - ui setting
+    let searchBar: UISearchBar = {
+        let search = UISearchBar()
+        search.layer.borderColor = UIColor.white.cgColor
+        return search
+    }()
+    let searchController = UISearchController(searchResultsController: nil)
+    self.navigationItem.searchController = searchController
+    
     let header: UIView = {
         let view = UIView()
         return view
@@ -68,7 +76,7 @@ class HomeViewController: UIViewController {
     let dataSource = RxTableViewSectionedReloadDataSource<PersonSection>(configureCell: { dataSource, tableView, indexPath, item in
         let cell = tableView.dequeueReusableCell(withIdentifier: PersonCell.cellId, for: indexPath) as! PersonCell
         cell.selectionStyle = .none
-        cell.phoneNumber.text = item.phoneNumber
+//        cell.phoneNumber.text = item.phoneNumber
         cell.name.text = item.name
         return cell
     })
@@ -80,6 +88,7 @@ class HomeViewController: UIViewController {
         self.view.addSubview(titleLabel)
         self.view.addSubview(header)
         self.view.addSubview(addButton)
+        self.view.addSubview(searchBar)
         header.addSubview(profile)
         header.addSubview(userName)
 
@@ -87,8 +96,14 @@ class HomeViewController: UIViewController {
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.leading.equalTo(20)
         }
+        searchBar.snp.makeConstraints {
+            $0.leading.equalTo(16)
+            $0.trailing.equalTo(-16)
+            $0.height.equalTo(30)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+        }
         header.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(20)
+            $0.top.equalTo(searchBar.snp.bottom).offset(20)
             $0.leading.trailing.equalTo(0)
             $0.height.equalTo(70)
         }
