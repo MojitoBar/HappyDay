@@ -167,8 +167,11 @@ class HomeViewController: UIViewController {
         searchBar.rx.text
             .orEmpty
             .distinctUntilChanged()
-            .subscribe(onNext: { changedText in
-                 print("Changed Text ::: \(changedText)")
+            .subscribe(onNext: { [weak self] changedText in
+                // 입력받은 텍스트가 포함된 persons를 filterPersons에 적용
+                self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.hasPrefix(changedText) } ?? []
+                // filterPersons로 personObservable 변경
+                self?.viewModel.personObservable.accept((self?.viewModel.dicToObserbable(dic: (self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!))!))!)
             })
             .disposed(by: disposeBag)
     }

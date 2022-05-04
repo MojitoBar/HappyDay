@@ -11,26 +11,20 @@ import Contacts
 
 class HomeViewModel {
     lazy var personObservable = BehaviorRelay<[PersonSection]>(value: [])
+    var persons: [Person] = []
+    var filterPersons: [Person] = []
+    var sections: [PersonSection] = []
     
     init() {
         _ = FetchContacts.fetchContactsRx()
-            .map{ data -> [String:[Person]] in
-                var persons: [String:[Person]] = [:]
-                data.enumerated().forEach { (index, item) in
-                    if persons[item.name.getFirstChar()] != nil {
-                        persons[item.name.getFirstChar()]!.append(Person(name: item.name, phoneNumber: item.phoneNumber))
-                    }
-                    else {
-                        persons[item.name.getFirstChar()] = [Person(name: item.name, phoneNumber: item.phoneNumber)]
-                    }
-                }
-                return persons
+            .map{ [self] data -> [String:[Person]] in
+                persons = data
+                filterPersons = persons
+                let personsDic = arrToDic(persons: persons)
+                return personsDic
             }
-            .map{ persons -> [PersonSection] in
-                var sections: [PersonSection] = []
-                persons.forEach { (key, value) in
-                    sections.append(PersonSection(header: key, items: value))
-                }
+            .map{ [self] persons -> [PersonSection] in
+                sections = dicToObserbable(dic: persons)
                 return sections
             }
             .map{ result -> [PersonSection] in
@@ -41,7 +35,27 @@ class HomeViewModel {
             .bind(to: personObservable)
     }
     
-    func filterSearchText() {
-        
+    func arrToDic(persons: [Person]) -> [String: [Person]] {
+        var personsDic: [String:[Person]] = [:]
+        persons.enumerated().forEach { (index, item) in
+            if personsDic[item.name.getFirstChar()] != nil {
+                personsDic[item.name.getFirstChar()]!.append(Person(name: item.name, phoneNumber: item.phoneNumber))
+            }
+            else {
+                personsDic[item.name.getFirstChar()] = [Person(name: item.name, phoneNumber: item.phoneNumber)]
+            }
+        }
+        return personsDic
+    }
+    
+    func dicToObserbable(dic: [String: [Person]]) -> [PersonSection] {
+        var sections: [PersonSection] = []
+        dic.forEach { (key, value) in
+            sections.append(PersonSection(header: key, items: value))
+        }
+        sections = sections.sorted { item1, item2 in
+            return item1.header < item2.header
+        }
+        return sections
     }
 }
