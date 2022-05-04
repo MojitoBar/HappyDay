@@ -67,7 +67,7 @@ class PersonCell: UITableViewCell {
     }
     
     func layout() {
-        self.addSubview(name)
+         self.addSubview(name)
         self.addSubview(phoneNumber)
         name.font = UIFont.systemFont(ofSize: 14)
         phoneNumber.font = UIFont.systemFont(ofSize: 14)
