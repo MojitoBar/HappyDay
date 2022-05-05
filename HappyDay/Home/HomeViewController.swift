@@ -85,6 +85,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - layout setting
     func setLayout() {
+        self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .white
         
         self.view.addSubview(titleLabel)
@@ -184,5 +185,10 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 페이지 이동
+        let detail = DetailViewColler()
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }

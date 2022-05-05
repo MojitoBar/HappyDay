@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import RxSwift
 import RxRelay
 import Contacts
 
 class HomeViewModel {
     lazy var personObservable = BehaviorRelay<[PersonSection]>(value: [])
+    
     var persons: [Person] = []
     var filterPersons: [Person] = []
     var sections: [PersonSection] = []
+    
+    let disposeBag = DisposeBag()
     
     init() {
         _ = FetchContacts.fetchContactsRx()
@@ -33,6 +37,7 @@ class HomeViewModel {
                 }
             }
             .bind(to: personObservable)
+            .disposed(by: disposeBag)
     }
     
     func arrToDic(persons: [Person]) -> [String: [Person]] {
@@ -49,7 +54,7 @@ class HomeViewModel {
     }
     
     func dicToObserbable(dic: [String: [Person]]) -> [PersonSection] {
-        var sections: [PersonSection] = []
+//        var sections: [PersonSection] = []
         dic.forEach { (key, value) in
             sections.append(PersonSection(header: key, items: value))
         }

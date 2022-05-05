@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B711FCC128244CEB00CC6B65 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B711FCC028244CEB00CC6B65 /* DetailViewController.swift */; };
 		B72167E8281C2D7100CBCB70 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167E7281C2D7100CBCB70 /* Person.swift */; };
 		B72167EA281C2DE400CBCB70 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167E9281C2DE400CBCB70 /* PersonCell.swift */; };
 		B72167ED281C2F5B00CBCB70 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B72167EC281C2F5B00CBCB70 /* RxCocoa */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B711FCC028244CEB00CC6B65 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B72167E7281C2D7100CBCB70 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		B72167E9281C2DE400CBCB70 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		B72167F0281C300800CBCB70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B711FCBF28244CCF00CC6B65 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B711FCC028244CEB00CC6B65 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		B72167F5281C6FE000CBCB70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		B7BBA23B280E7166003D1B8F /* Scouter */ = {
 			isa = PBXGroup;
 			children = (
+				B711FCBF28244CCF00CC6B65 /* Detail */,
 				B782A04A281D8C890018133B /* Service */,
 				B72167F5281C6FE000CBCB70 /* Model */,
 				B77137BB280EF7A400C47C4C /* Home */,
@@ -212,6 +223,7 @@
 				B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */,
 				B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */,
 				B7BBA252280E7267003D1B8F /* HomeViewController.swift in Sources */,
+				B711FCC128244CEB00CC6B65 /* DetailViewController.swift in Sources */,
 				B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */,
 				B782A04C281D8C990018133B /* FetchContacts.swift in Sources */,
 			);
