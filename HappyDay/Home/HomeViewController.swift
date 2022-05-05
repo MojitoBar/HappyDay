@@ -20,17 +20,19 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setLayout()
         setTable()
+        setSearchBar()
         setRx()
     }
     
     // MARK: - ui setting
-    let searchBar: UISearchBar = {
-        let search = UISearchBar()
-        search.layer.borderColor = UIColor.white.cgColor
+    let searchBar: UITextField = {
+        let search = UITextField()
+        search.placeholder = "검색"
+        search.layer.cornerRadius = 10
+        search.layer.borderWidth = 1
+        search.layer.borderColor = UIColor.lightGray.cgColor
         return search
     }()
-    let searchController = UISearchController(searchResultsController: nil)
-    self.navigationItem.searchController = searchController
     
     let header: UIView = {
         let view = UIView()
@@ -99,8 +101,8 @@ class HomeViewController: UIViewController {
         searchBar.snp.makeConstraints {
             $0.leading.equalTo(16)
             $0.trailing.equalTo(-16)
-            $0.height.equalTo(30)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.height.equalTo(35)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(15)
         }
         header.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom).offset(20)
@@ -121,6 +123,16 @@ class HomeViewController: UIViewController {
             $0.trailing.equalTo(-10)
             $0.width.height.equalTo(40)
         }
+    }
+    
+    func setSearchBar() {
+        let leftimage = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        leftimage.image = UIImage(systemName: "magnifyingglass")
+        leftimage.contentMode = .scaleAspectFit
+        leftimage.tintColor = .lightGray
+        searchBar.leftView = leftimage
+        searchBar.leftViewMode = .always
+        leftimage.widthAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     // MARK: - table setting
@@ -149,6 +161,18 @@ class HomeViewController: UIViewController {
         // 테이블 뷰 데이터 바인딩
         viewModel.personObservable
             .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        // SearchBar Text 변경 감지
+        searchBar.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] changedText in
+                // 입력받은 텍스트가 포함된 persons를 filterPersons에 적용
+                self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.hasPrefix(changedText) } ?? []
+                // filterPersons로 personObservable 변경
+                self?.viewModel.personObservable.accept((self?.viewModel.dicToObserbable(dic: (self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!))!))!)
+            })
             .disposed(by: disposeBag)
     }
 }
