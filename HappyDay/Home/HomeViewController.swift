@@ -176,7 +176,6 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] changedText in
                 // 입력받은 텍스트가 포함된 persons를 filterPersons에 적용
-                print(self?.searchBar.text)
                 if self?.searchBar.text! != "" {
                     self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.contains(changedText) } ?? []
                     // filterPersons로 personObservable 변경
@@ -214,6 +213,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 페이지 이동
         let detail = DetailViewColler()
+        detail.viewModel.info.accept(Person(name: self.viewModel.personObservable.value[indexPath.section].items[indexPath.row].name, phoneNumber: self.viewModel.personObservable.value[indexPath.section].items[indexPath.row].phoneNumber))
         self.navigationController?.pushViewController(detail, animated: true)
     }
 }
