@@ -54,7 +54,7 @@ class HomeViewModel {
     }
     
     func dicToObserbable(dic: [String: [Person]]) -> [PersonSection] {
-//        var sections: [PersonSection] = []
+        var sections: [PersonSection] = []
         dic.forEach { (key, value) in
             sections.append(PersonSection(header: key, items: value))
         }

@@ -22,6 +22,10 @@ class HomeViewController: UIViewController {
         setTable()
         setSearchBar()
         setRx()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - ui setting
@@ -172,9 +176,20 @@ class HomeViewController: UIViewController {
                 // 입력받은 텍스트가 포함된 persons를 filterPersons에 적용
                 self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.hasPrefix(changedText) } ?? []
                 // filterPersons로 personObservable 변경
-                self?.viewModel.personObservable.accept((self?.viewModel.dicToObserbable(dic: (self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!))!))!)
+                let arrToDic = self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!)
+                let dicToObservable = self?.viewModel.dicToObserbable(dic: arrToDic!)
+                self?.viewModel.personObservable.accept(dicToObservable!)
             })
             .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Keyboard End Editing
+    // 터치가 발생할때 핸들러 캐치
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
+        sender.cancelsTouchesInView = false
     }
 }
 
