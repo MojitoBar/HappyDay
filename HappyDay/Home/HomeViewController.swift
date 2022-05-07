@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     let viewModel = HomeViewModel()
     var disposeBag = DisposeBag()
     
@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         setSearchBar()
         setRx()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
