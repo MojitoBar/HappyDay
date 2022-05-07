@@ -33,6 +33,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     let searchBar: UITextField = {
         let search = UITextField()
         search.placeholder = "검색"
+        search.text = nil
         search.layer.cornerRadius = 10
         search.layer.borderWidth = 1
         search.layer.borderColor = UIColor.lightGray.cgColor
@@ -172,14 +173,22 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
         // SearchBar Text 변경 감지
         searchBar.rx.text
             .orEmpty
-            .distinctUntilChanged()
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] changedText in
                 // 입력받은 텍스트가 포함된 persons를 filterPersons에 적용
-                self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.hasPrefix(changedText) } ?? []
-                // filterPersons로 personObservable 변경
-                let arrToDic = self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!)
-                let dicToObservable = self?.viewModel.dicToObserbable(dic: arrToDic!)
-                self?.viewModel.personObservable.accept(dicToObservable!)
+                print(self?.searchBar.text)
+                if self?.searchBar.text! != "" {
+                    self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.contains(changedText) } ?? []
+                    // filterPersons로 personObservable 변경
+                    let arrToDic = self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!)
+                    let dicToObservable = self?.viewModel.dicToObserbable(dic: arrToDic!)
+                    self?.viewModel.personObservable.accept(dicToObservable!)
+                }
+                else{
+                    let arrToDic = self?.viewModel.arrToDic(persons: (self?.viewModel.persons)!)
+                    let dicToObservable = self?.viewModel.dicToObserbable(dic: arrToDic!)
+                    self?.viewModel.personObservable.accept(dicToObservable!)
+                }
             })
             .disposed(by: disposeBag)
     }
