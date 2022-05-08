@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     let viewModel = HomeViewModel()
     var disposeBag = DisposeBag()
     
@@ -22,12 +22,18 @@ class HomeViewController: UIViewController {
         setTable()
         setSearchBar()
         setRx()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - ui setting
     let searchBar: UITextField = {
         let search = UITextField()
         search.placeholder = "검색"
+        search.text = nil
         search.layer.cornerRadius = 10
         search.layer.borderWidth = 1
         search.layer.borderColor = UIColor.lightGray.cgColor
@@ -85,6 +91,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - layout setting
     func setLayout() {
+        self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .white
         
         self.view.addSubview(titleLabel)
@@ -166,14 +173,32 @@ class HomeViewController: UIViewController {
         // SearchBar Text 변경 감지
         searchBar.rx.text
             .orEmpty
-            .distinctUntilChanged()
+            .debounce(.milliseconds(200), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] changedText in
                 // 입력받은 텍스트가 포함된 persons를 filterPersons에 적용
-                self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.hasPrefix(changedText) } ?? []
-                // filterPersons로 personObservable 변경
-                self?.viewModel.personObservable.accept((self?.viewModel.dicToObserbable(dic: (self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!))!))!)
+                if self?.searchBar.text! != "" {
+                    self?.viewModel.filterPersons = self?.viewModel.persons.filter { $0.name.contains(changedText) } ?? []
+                    // filterPersons로 personObservable 변경
+                    let arrToDic = self?.viewModel.arrToDic(persons: (self?.viewModel.filterPersons)!)
+                    let dicToObservable = self?.viewModel.dicToObserbable(dic: arrToDic!)
+                    self?.viewModel.personObservable.accept(dicToObservable!)
+                }
+                else{
+                    let arrToDic = self?.viewModel.arrToDic(persons: (self?.viewModel.persons)!)
+                    let dicToObservable = self?.viewModel.dicToObserbable(dic: arrToDic!)
+                    self?.viewModel.personObservable.accept(dicToObservable!)
+                }
             })
             .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Keyboard End Editing
+    // 터치가 발생할때 핸들러 캐치
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            view.endEditing(true)
+        }
+        sender.cancelsTouchesInView = false
     }
 }
 
@@ -184,5 +209,11 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 페이지 이동
+        let detail = DetailViewColler()
+        detail.viewModel.info.accept(Person(name: self.viewModel.personObservable.value[indexPath.section].items[indexPath.row].name, phoneNumber: self.viewModel.personObservable.value[indexPath.section].items[indexPath.row].phoneNumber))
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
