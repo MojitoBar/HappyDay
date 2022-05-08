@@ -15,6 +15,7 @@
 		B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72167F0281C300800CBCB70 /* HomeViewModel.swift */; };
 		B72167F4281C429F00CBCB70 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = B72167F3281C429F00CBCB70 /* RxDataSources */; };
 		B72FA9F928216DA700145ABE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72FA9F828216DA700145ABE /* String+Extension.swift */; };
+		B73882AD2828071900AC7555 /* DetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73882AC2828071900AC7555 /* DetailCard.swift */; };
 		B73CC70C2826D3DA009D01D0 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC70B2826D3DA009D01D0 /* DetailViewModel.swift */; };
 		B782A04C281D8C990018133B /* FetchContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B782A04B281D8C990018133B /* FetchContacts.swift */; };
 		B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */; };
@@ -32,6 +33,7 @@
 		B72167E9281C2DE400CBCB70 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		B72167F0281C300800CBCB70 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B72FA9F828216DA700145ABE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B73882AC2828071900AC7555 /* DetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCard.swift; sourceTree = "<group>"; };
 		B73CC70B2826D3DA009D01D0 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B782A04B281D8C990018133B /* FetchContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContacts.swift; sourceTree = "<group>"; };
 		B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				B711FCC028244CEB00CC6B65 /* DetailViewController.swift */,
 				B73CC70B2826D3DA009D01D0 /* DetailViewModel.swift */,
+				B73882AC2828071900AC7555 /* DetailCard.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B73882AD2828071900AC7555 /* DetailCard.swift in Sources */,
 				B72167EA281C2DE400CBCB70 /* PersonCell.swift in Sources */,
 				B72FA9F928216DA700145ABE /* String+Extension.swift in Sources */,
 				B72167E8281C2D7100CBCB70 /* Person.swift in Sources */,

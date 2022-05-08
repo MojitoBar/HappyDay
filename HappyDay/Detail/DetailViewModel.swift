@@ -12,6 +12,8 @@ import RxRelay
 class DetailViewModel {
     let info = BehaviorRelay<Person>(value: Person(name: "", phoneNumber: ""))
     
+    let cards: [CardView] = [CardView.init(frame: CGRect.zero, type: .send)]
+    
     init() {
         
     }
