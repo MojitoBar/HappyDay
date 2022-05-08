@@ -30,6 +30,13 @@ class DetailViewColler: UIViewController {
         return btn
     }()
     
+    let addBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage.init(systemName: "plus"), for: .normal)
+        btn.tintColor = .black
+        return btn
+    }()
+    
     let profile: UIView = {
         let profile = UIView()
         profile.layer.cornerRadius = 50
@@ -46,6 +53,13 @@ class DetailViewColler: UIViewController {
     func setLayout() {
         self.view.addSubview(backBtn)
         self.view.addSubview(nameLabel)
+        self.view.addSubview(addBtn)
+        
+        addBtn.snp.makeConstraints {
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
+            $0.trailing.equalTo(-16)
+            $0.width.equalTo(30)
+        }
         
         backBtn.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(10)
