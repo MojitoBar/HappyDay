@@ -61,7 +61,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let userName: UILabel = {
         let name = UILabel()
-        name.text = "주동석"
+        name.text = "홍길동"
         name.textColor = .black
         name.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         return name

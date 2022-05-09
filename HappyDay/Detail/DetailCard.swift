@@ -14,6 +14,25 @@ enum CardType {
 }
 
 class CardView: UIView {
+    // MARK: - init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    init(frame: CGRect, type: CardType) {
+        super.init(frame: frame)
+        
+        if type == .send {
+            setLayout()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - ui setting
+    
     let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "2020년 2월 20일"
@@ -38,22 +57,7 @@ class CardView: UIView {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    init(frame: CGRect, type: CardType) {
-        super.init(frame: frame)
-        
-        if type == .send {
-            setLayout()
-        }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    // MARK: - layout setting
     private func setLayout() {
         self.backgroundColor = .systemBlue
         self.layer.cornerRadius = 20
