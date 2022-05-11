@@ -1,3 +1,3 @@
 # HappyDay
 
-Family event recording application
+HBD diary
