@@ -26,15 +26,30 @@ class MyProfileViewController: UIViewController, CustomViewController {
         return title
     }()
     
+    let profile: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage.init(systemName: "star")
+        img.backgroundColor = .lightGray
+        img.layer.cornerRadius = 30
+        return img
+    }()
+    
     // MARK: - layout setting
     func setLayout() {
         self.view.backgroundColor = .white
         self.navigationController?.isNavigationBarHidden = true
         
         self.view.addSubview(titleLabel)
+        self.view.addSubview(profile)
+        
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
             $0.leading.equalTo(20)
+        }
+        profile.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(20)
+            $0.leading.equalTo(20)
+            $0.width.height.equalTo(80)
         }
     }
     
