@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import RxSwift
 
 class MyProfileViewController: UIViewController, CustomViewController {
@@ -48,6 +49,15 @@ class MyProfileViewController: UIViewController, CustomViewController {
         return label
     }()
     
+    let wishLabel: UILabel = {
+        let label = UILabel()
+        label.text = "위시리스트"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        return label
+    }()
+    
+    let wishCard = WishListView(img: UIImage.init(systemName: "heart")!, name: "하트", content: "설명 및 소개입니다.", price: "3000원")
+    
     // MARK: - layout setting
     func setLayout() {
         self.view.backgroundColor = .white
@@ -57,6 +67,8 @@ class MyProfileViewController: UIViewController, CustomViewController {
         self.view.addSubview(profile)
         self.view.addSubview(name)
         self.view.addSubview(birthdayLabel)
+        self.view.addSubview(wishLabel)
+        self.view.addSubview(wishCard)
         
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
@@ -75,8 +87,17 @@ class MyProfileViewController: UIViewController, CustomViewController {
             $0.top.equalTo(name.snp.bottom).offset(10)
             $0.leading.equalTo(profile.snp.trailing).offset(20)
         }
+        wishLabel.snp.makeConstraints {
+            $0.top.equalTo(profile.snp.bottom).offset(30)
+            $0.leading.equalTo(20)
+        }
+        wishCard.snp.makeConstraints {
+            $0.top.equalTo(wishLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(0)
+            $0.trailing.equalTo(0)
+            $0.height.equalTo(100)
+        }
     }
-    
     // MARK: - Rx Setting
     func setRx() {
         
