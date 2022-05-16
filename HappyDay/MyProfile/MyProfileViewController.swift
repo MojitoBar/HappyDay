@@ -8,8 +8,11 @@
 import UIKit
 import SnapKit
 import RxSwift
+import RxRelay
 
-class MyProfileViewController: UIViewController, CustomViewController, UIScrollViewDelegate {
+class MyProfileViewController: UIViewController, CustomViewController {
+    let viewModel = MyProfileViewModel()
+    
     // MARK: - view life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +87,6 @@ class MyProfileViewController: UIViewController, CustomViewController, UIScrollV
         self.view.addSubview(wishCard)
         self.view.addSubview(givenLabel)
         
-        givenGiftScrollView.delegate = self
         givenGiftScrollView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100)
         givenGiftScrollView.addSubview(GivenItem(img: UIImage.init(systemName: "star")!))
         self.view.addSubview(givenGiftScrollView)
@@ -131,6 +133,17 @@ class MyProfileViewController: UIViewController, CustomViewController, UIScrollV
     }
     // MARK: - Rx Setting
     func setRx() {
-        
+        // 유저 이름
+        viewModel.nameObservable
+            .bind(to: name.rx.text)
+            .disposed(by: disposeBag)
+        // 유저 생일
+        viewModel.birthdayObservable
+            .bind(to: birthdayLabel.rx.text)
+            .disposed(by: disposeBag)
+        // 유저 프로필
+        viewModel.profileObservable
+            .bind(to: profile.rx.image)
+            .disposed(by: disposeBag)
     }
 }

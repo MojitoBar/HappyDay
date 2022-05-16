@@ -20,6 +20,9 @@
 		B73882AD2828071900AC7555 /* DetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73882AC2828071900AC7555 /* DetailCard.swift */; };
 		B73A82442831E5220027D096 /* WishItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73A82432831E5220027D096 /* WishItem.swift */; };
 		B73C8ED9283225CC00C99EDE /* GivenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8ED8283225CC00C99EDE /* GivenItem.swift */; };
+		B73C8EDB283275A200C99EDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8EDA283275A200C99EDE /* User.swift */; };
+		B73C8EDD2832760600C99EDE /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8EDC2832760600C99EDE /* MyProfileViewModel.swift */; };
+		B73C8EDF2832780D00C99EDE /* FetchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8EDE2832780D00C99EDE /* FetchUser.swift */; };
 		B73CC70C2826D3DA009D01D0 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73CC70B2826D3DA009D01D0 /* DetailViewModel.swift */; };
 		B782A04C281D8C990018133B /* FetchContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B782A04B281D8C990018133B /* FetchContacts.swift */; };
 		B7AB0425280E7ABC002E86D3 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */; };
@@ -42,6 +45,9 @@
 		B73882AC2828071900AC7555 /* DetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCard.swift; sourceTree = "<group>"; };
 		B73A82432831E5220027D096 /* WishItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItem.swift; sourceTree = "<group>"; };
 		B73C8ED8283225CC00C99EDE /* GivenItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GivenItem.swift; sourceTree = "<group>"; };
+		B73C8EDA283275A200C99EDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B73C8EDC2832760600C99EDE /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
+		B73C8EDE2832780D00C99EDE /* FetchUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUser.swift; sourceTree = "<group>"; };
 		B73CC70B2826D3DA009D01D0 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B782A04B281D8C990018133B /* FetchContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchContacts.swift; sourceTree = "<group>"; };
 		B7AB0424280E7ABC002E86D3 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B72167E7281C2D7100CBCB70 /* Person.swift */,
+				B73C8EDA283275A200C99EDE /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,6 +100,7 @@
 				B72F8489282C086C00E87A73 /* MyProfileViewController.swift */,
 				B73A82432831E5220027D096 /* WishItem.swift */,
 				B73C8ED8283225CC00C99EDE /* GivenItem.swift */,
+				B73C8EDC2832760600C99EDE /* MyProfileViewModel.swift */,
 			);
 			path = MyProfile;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				B782A04B281D8C990018133B /* FetchContacts.swift */,
+				B73C8EDE2832780D00C99EDE /* FetchUser.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -254,9 +263,12 @@
 				B72F848D282C094300E87A73 /* CustomViewController.swift in Sources */,
 				B73C8ED9283225CC00C99EDE /* GivenItem.swift in Sources */,
 				B73882AD2828071900AC7555 /* DetailCard.swift in Sources */,
+				B73C8EDD2832760600C99EDE /* MyProfileViewModel.swift in Sources */,
 				B72167EA281C2DE400CBCB70 /* PersonCell.swift in Sources */,
 				B72FA9F928216DA700145ABE /* String+Extension.swift in Sources */,
 				B73A82442831E5220027D096 /* WishItem.swift in Sources */,
+				B73C8EDF2832780D00C99EDE /* FetchUser.swift in Sources */,
+				B73C8EDB283275A200C99EDE /* User.swift in Sources */,
 				B72167E8281C2D7100CBCB70 /* Person.swift in Sources */,
 				B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */,
 				B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */,
