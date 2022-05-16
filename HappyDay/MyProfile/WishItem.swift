@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WishListView: UIView {
+class WishItem: UIView {
     
     // MARK: - view life cycle
     override init(frame: CGRect) {
