@@ -13,6 +13,11 @@ class GivenItemView: UIView {
         super.init(frame: frame)
     }
     
+    convenience init(givenItem: GivenItem) {
+        self.init(frame: CGRect.zero)
+        setLayout(img: givenItem.image)
+    }
+    
     convenience init(img: UIImage) {
         self.init(frame: CGRect.zero)
         setLayout(img: img)
@@ -32,7 +37,7 @@ class GivenItemView: UIView {
     }()
     
     // MARK: - layout setting
-    func setLayout(img: UIImage) {
+    func setLayout(img: UIImage?) {
         self.addSubview(productImage)
         
         productImage.snp.makeConstraints {
@@ -41,6 +46,6 @@ class GivenItemView: UIView {
             $0.width.equalTo(80)
             $0.height.equalTo(70)
         }
-        productImage.image = img
+        productImage.image = img ?? UIImage.init(systemName: "heart")
     }
 }

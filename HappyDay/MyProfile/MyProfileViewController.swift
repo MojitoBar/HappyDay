@@ -75,7 +75,6 @@ class MyProfileViewController: UIViewController, CustomViewController {
     
     let wishCardContainView: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
         return view
     }()
     
@@ -141,7 +140,6 @@ class MyProfileViewController: UIViewController, CustomViewController {
         givenGiftScrollView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100)
         givenGiftScrollView.addSubview(GivenItemView(img: UIImage.init(systemName: "star")!))
         givenGiftScrollView.contentSize = CGSize(width: 1000, height: 100)
-        givenGiftScrollView.backgroundColor = .red
         
         givenGiftScrollView.snp.makeConstraints {
             $0.top.equalTo(givenLabel.snp.bottom).offset(10)
