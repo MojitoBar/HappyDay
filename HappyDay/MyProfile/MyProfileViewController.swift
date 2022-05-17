@@ -18,6 +18,7 @@ class MyProfileViewController: UIViewController, CustomViewController {
         super.viewDidLoad()
         
         setLayout()
+        setScrollView()
         setRx()
     }
     
@@ -72,7 +73,11 @@ class MyProfileViewController: UIViewController, CustomViewController {
         return scroll
     }()
     
-    let wishCard = WishItem(img: UIImage.init(systemName: "heart")!, name: "하트", content: "설명 및 소개입니다.", price: "3000원")
+    let wishCardContainView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        return view
+    }()
     
     // MARK: - layout setting
     func setLayout() {
@@ -84,14 +89,8 @@ class MyProfileViewController: UIViewController, CustomViewController {
         self.view.addSubview(name)
         self.view.addSubview(birthdayLabel)
         self.view.addSubview(wishLabel)
-        self.view.addSubview(wishCard)
         self.view.addSubview(givenLabel)
-        
-        givenGiftScrollView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100)
-        givenGiftScrollView.addSubview(GivenItem(img: UIImage.init(systemName: "star")!))
-        self.view.addSubview(givenGiftScrollView)
-        givenGiftScrollView.contentSize = CGSize(width: 1000, height: 100)
-        givenGiftScrollView.backgroundColor = .red
+        self.view.addSubview(wishCardContainView)
         
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide).offset(20)
@@ -114,16 +113,36 @@ class MyProfileViewController: UIViewController, CustomViewController {
             $0.top.equalTo(profile.snp.bottom).offset(30)
             $0.leading.equalTo(20)
         }
-        wishCard.snp.makeConstraints {
+        wishCardContainView.snp.makeConstraints {
             $0.top.equalTo(wishLabel.snp.bottom).offset(10)
             $0.leading.equalTo(0)
             $0.trailing.equalTo(0)
-            $0.height.equalTo(100)
+            $0.height.equalTo(dummyWishItems.count * 100)
+        }
+        for i in 0..<dummyWishItems.count {
+            let dummyWishItem = WishItemView(wishItem: dummyWishItems[i])
+            wishCardContainView.addSubview(dummyWishItem)
+            dummyWishItem.snp.makeConstraints {
+                $0.top.equalTo(i * 100)
+                $0.leading.equalTo(0)
+                $0.trailing.equalTo(0)
+            }
         }
         givenLabel.snp.makeConstraints {
-            $0.top.equalTo(wishCard.snp.bottom).offset(20)
+            $0.top.equalTo(wishCardContainView.snp.bottom)
             $0.leading.equalTo(20)
         }
+    }
+    
+    // MARK: - ScrollView Setting
+    func setScrollView() {
+        self.view.addSubview(givenGiftScrollView)
+        
+        givenGiftScrollView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100)
+        givenGiftScrollView.addSubview(GivenItemView(img: UIImage.init(systemName: "star")!))
+        givenGiftScrollView.contentSize = CGSize(width: 1000, height: 100)
+        givenGiftScrollView.backgroundColor = .red
+        
         givenGiftScrollView.snp.makeConstraints {
             $0.top.equalTo(givenLabel.snp.bottom).offset(10)
             $0.leading.equalTo(0)
@@ -131,6 +150,7 @@ class MyProfileViewController: UIViewController, CustomViewController {
             $0.width.equalTo(self.view.snp.width)
         }
     }
+    
     // MARK: - Rx Setting
     func setRx() {
         // 유저 이름

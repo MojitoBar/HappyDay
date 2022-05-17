@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GivenItem: UIView {
+class GivenItemView: UIView {
     // MARK: - view life cycle
     override init(frame: CGRect) {
         super.init(frame: frame)

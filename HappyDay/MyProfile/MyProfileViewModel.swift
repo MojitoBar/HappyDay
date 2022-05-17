@@ -15,6 +15,7 @@ class MyProfileViewModel {
     let nameObservable: Observable<String>
     let birthdayObservable: Observable<String>
     let profileObservable: Observable<UIImage>
+//    let 
     
     let disposeBag = DisposeBag()
     

@@ -7,11 +7,16 @@
 
 import UIKit
 
-class WishItem: UIView {
+class WishItemView: UIView {
     
     // MARK: - view life cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+    }
+    
+    convenience init(wishItem: WishItem) {
+        self.init(frame: CGRect.zero)
+        setLayout(img: wishItem.image, name: wishItem.name, content: wishItem.content, price: wishItem.price)
     }
     
     convenience init(img: UIImage, name: String, content: String, price: String) {
@@ -51,7 +56,7 @@ class WishItem: UIView {
     }()
     
     // MARK: - layout setting
-    func setLayout(img: UIImage, name: String, content: String, price: String) {
+    func setLayout(img: UIImage?, name: String, content: String, price: String) {
         self.addSubview(productImage)
         self.addSubview(productName)
         self.addSubview(productContent)
@@ -63,7 +68,7 @@ class WishItem: UIView {
             $0.width.equalTo(80)
             $0.height.equalTo(70)
         }
-        productImage.image = img
+        productImage.image = img ?? UIImage.init(systemName: "bell")
         
         productName.snp.makeConstraints {
             $0.leading.equalTo(productImage.snp.trailing).offset(10)
