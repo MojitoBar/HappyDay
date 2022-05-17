@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
+class HomeViewController: UIViewController, CustomViewController {
     let viewModel = HomeViewModel()
     var disposeBag = DisposeBag()
     
@@ -191,8 +191,10 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
             })
             .disposed(by: disposeBag)
     }
-    
-    // MARK: - Keyboard End Editing
+}
+
+// MARK: - Keyboard End Editing
+extension HomeViewController: UIGestureRecognizerDelegate {
     // 터치가 발생할때 핸들러 캐치
     @objc func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
@@ -202,6 +204,7 @@ class HomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 }
 
+// MARK: - UITableView Delegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(35)
