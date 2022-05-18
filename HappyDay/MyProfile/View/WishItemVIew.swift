@@ -12,6 +12,7 @@ class WishItemView: UIView {
     // MARK: - view life cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setLayout(img: nil, name: "test", content: "test", price: "test")
     }
     
     convenience init(wishItem: WishItem) {
