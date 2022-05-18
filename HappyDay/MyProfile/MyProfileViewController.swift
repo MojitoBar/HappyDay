@@ -78,6 +78,7 @@ class MyProfileViewController: UIViewController, CustomViewController {
         return view
     }()
     
+    // MARK: - need refactoring
     var wishCards: [WishItemView] = [
         WishItemView(),
         WishItemView()
