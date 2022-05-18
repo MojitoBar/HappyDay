@@ -123,7 +123,5 @@ class MyProfileViewController: UIViewController, CustomViewController {
         viewModel.wishSecondPrice
             .bind(to: wishCards[1].productPrice.rx.text)
             .disposed(by: disposeBag)
-        
-        
     }
 }

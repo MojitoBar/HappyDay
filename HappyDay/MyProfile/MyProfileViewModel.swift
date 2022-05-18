@@ -12,27 +12,23 @@ import RxRelay
 class MyProfileViewModel {
     
     // OUTPUT
-    var nameObservable: Observable<String>!
-    var birthdayObservable: Observable<String>!
-    var profileObservable: Observable<UIImage>!
+    var nameObservable: Observable<String>
+    var birthdayObservable: Observable<String>
+    var profileObservable: Observable<UIImage>
     
-    var wishFirstImg: Observable<UIImage>!
-    var wishFirstContent: Observable<String>!
-    var wishFirstPrice: Observable<String>!
-    var wishFirstName: Observable<String>!
-    var wishSecondImg: Observable<UIImage>!
-    var wishSecondContent: Observable<String>!
-    var wishSecondPrice: Observable<String>!
-    var wishSecondName: Observable<String>!
+    var wishFirstImg: Observable<UIImage>
+    var wishFirstContent: Observable<String>
+    var wishFirstPrice: Observable<String>
+    var wishFirstName: Observable<String>
+    var wishSecondImg: Observable<UIImage>
+    var wishSecondContent: Observable<String>
+    var wishSecondPrice: Observable<String>
+    var wishSecondName: Observable<String>
     
     let disposeBag = DisposeBag()
     
     init() {
-        fetchUser()
-        fetchWishList()
-    }
-    
-    func fetchUser() {
+        // MARK: - FetchUserData
         let user = BehaviorRelay<User>(value: User())
         
         FetchUser.fetchUsersRx()
@@ -47,9 +43,8 @@ class MyProfileViewModel {
         
         profileObservable = user
             .map { ($0.profile ?? UIImage.init(systemName: "heart"))! }
-    }
-    
-    func fetchWishList(){
+        
+        // MARK: - FetchWishItemData
         let wishList = BehaviorRelay<[WishItem]>(value: [])
         
         FetchWishList.fetchWishListRx()
