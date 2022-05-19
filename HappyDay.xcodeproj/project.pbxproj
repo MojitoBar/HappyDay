@@ -19,7 +19,7 @@
 		B72FA9F928216DA700145ABE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72FA9F828216DA700145ABE /* String+Extension.swift */; };
 		B73882AD2828071900AC7555 /* DetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73882AC2828071900AC7555 /* DetailCard.swift */; };
 		B73A82442831E5220027D096 /* WishItemVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73A82432831E5220027D096 /* WishItemVIew.swift */; };
-		B73C8ED9283225CC00C99EDE /* GivenItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8ED8283225CC00C99EDE /* GivenItemView.swift */; };
+		B73C8784283549D800C65536 /* GivenItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8783283549D800C65536 /* GivenItemCell.swift */; };
 		B73C8EDB283275A200C99EDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8EDA283275A200C99EDE /* User.swift */; };
 		B73C8EDD2832760600C99EDE /* MyProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8EDC2832760600C99EDE /* MyProfileViewModel.swift */; };
 		B73C8EDF2832780D00C99EDE /* FetchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73C8EDE2832780D00C99EDE /* FetchUser.swift */; };
@@ -48,7 +48,7 @@
 		B72FA9F828216DA700145ABE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		B73882AC2828071900AC7555 /* DetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCard.swift; sourceTree = "<group>"; };
 		B73A82432831E5220027D096 /* WishItemVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishItemVIew.swift; sourceTree = "<group>"; };
-		B73C8ED8283225CC00C99EDE /* GivenItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GivenItemView.swift; sourceTree = "<group>"; };
+		B73C8783283549D800C65536 /* GivenItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GivenItemCell.swift; sourceTree = "<group>"; };
 		B73C8EDA283275A200C99EDE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B73C8EDC2832760600C99EDE /* MyProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewModel.swift; sourceTree = "<group>"; };
 		B73C8EDE2832780D00C99EDE /* FetchUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUser.swift; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				B73A82432831E5220027D096 /* WishItemVIew.swift */,
-				B73C8ED8283225CC00C99EDE /* GivenItemView.swift */,
 				B7B028962833F3EA00410C55 /* MyProfileView.swift */,
+				B73C8783283549D800C65536 /* GivenItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,7 +282,6 @@
 				B7B028942833E78200410C55 /* GivenItem.swift in Sources */,
 				B72F848A282C086C00E87A73 /* MyProfileViewController.swift in Sources */,
 				B72F848D282C094300E87A73 /* CustomViewController.swift in Sources */,
-				B73C8ED9283225CC00C99EDE /* GivenItemView.swift in Sources */,
 				B73882AD2828071900AC7555 /* DetailCard.swift in Sources */,
 				B7B028972833F3EA00410C55 /* MyProfileView.swift in Sources */,
 				B73C8EDD2832760600C99EDE /* MyProfileViewModel.swift in Sources */,
@@ -293,6 +292,7 @@
 				B73C8EDF2832780D00C99EDE /* FetchUser.swift in Sources */,
 				B73C8EDB283275A200C99EDE /* User.swift in Sources */,
 				B72167E8281C2D7100CBCB70 /* Person.swift in Sources */,
+				B73C8784283549D800C65536 /* GivenItemCell.swift in Sources */,
 				B72167F1281C300800CBCB70 /* HomeViewModel.swift in Sources */,
 				B7BBA23D280E7166003D1B8F /* AppDelegate.swift in Sources */,
 				B7BBA23F280E7166003D1B8F /* SceneDelegate.swift in Sources */,

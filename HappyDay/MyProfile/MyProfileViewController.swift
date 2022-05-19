@@ -9,16 +9,22 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxRelay
+import RxCocoa
+import RxDataSources
 
 class MyProfileViewController: UIViewController, CustomViewController {
     let viewModel = MyProfileViewModel()
+    let disposeBag = DisposeBag()
     
     // MARK: - view life cycle
+    override func loadView() {
+        super.loadView()
+        setLayout()
+        setTableView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setLayout()
-        setScrollView()
         setRx()
     }
     
@@ -73,11 +79,23 @@ class MyProfileViewController: UIViewController, CustomViewController {
         return scroll
     }()
     
+    let givenGiftCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 100)
+        
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.register(GivenItemCell.self, forCellWithReuseIdentifier: GivenItemCell.CellId)
+        collection.backgroundColor = .blue
+        return collection
+    }()
+    
     let wishCardContainView: UIView = {
         let view = UIView()
         return view
     }()
     
+    // MARK: - need refactoring
     var wishCards: [WishItemView] = [
         WishItemView(),
         WishItemView()
@@ -122,6 +140,13 @@ class MyProfileViewController: UIViewController, CustomViewController {
             .disposed(by: disposeBag)
         viewModel.wishSecondPrice
             .bind(to: wishCards[1].productPrice.rx.text)
+            .disposed(by: disposeBag)
+        // GivenItem CollectionView
+        viewModel.givenItemObservable
+            .debug()
+            .bind(to: givenGiftCollectionView.rx.items(cellIdentifier: GivenItemCell.CellId, cellType: GivenItemCell.self)) { indexPath, item, cell in
+                cell.cellImage.image = item
+            }
             .disposed(by: disposeBag)
     }
 }
