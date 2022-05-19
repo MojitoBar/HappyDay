@@ -25,6 +25,15 @@ class MyProfileViewModel {
     var wishSecondPrice: Observable<String>
     var wishSecondName: Observable<String>
     
+    var givenItemObservable = Observable.of([UIImage.init(systemName: "star")!,
+                                             UIImage.init(systemName: "star")!,
+                                             UIImage.init(systemName: "star")!,
+                                             UIImage.init(systemName: "star")!,
+                                             UIImage.init(systemName: "star")!,
+                                             UIImage.init(systemName: "star")!,
+                                             UIImage.init(systemName: "star")!,
+                                             UIImage.init(systemName: "star")!])
+    
     let disposeBag = DisposeBag()
     
     init() {

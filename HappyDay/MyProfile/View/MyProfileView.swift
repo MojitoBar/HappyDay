@@ -62,15 +62,11 @@ extension MyProfileViewController {
         }
     }
     
-    // MARK: - ScrollView Setting
-    func setScrollView() {
-        self.view.addSubview(givenGiftScrollView)
+    // MARK: - CollectionView Setting
+    func setTableView() {
+        self.view.addSubview(givenGiftCollectionView)
         
-        givenGiftScrollView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 100)
-        givenGiftScrollView.addSubview(GivenItemView(img: UIImage.init(systemName: "star")!))
-        givenGiftScrollView.contentSize = CGSize(width: 1000, height: 100)
-        
-        givenGiftScrollView.snp.makeConstraints {
+        givenGiftCollectionView.snp.makeConstraints {
             $0.top.equalTo(givenLabel.snp.bottom).offset(10)
             $0.leading.equalTo(0)
             $0.height.equalTo(100)

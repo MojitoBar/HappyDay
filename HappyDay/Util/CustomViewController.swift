@@ -12,9 +12,3 @@ protocol CustomViewController {
     func setLayout()
     func setRx()
 }
-
-extension CustomViewController {
-    var disposeBag: DisposeBag {
-        return DisposeBag()
-    }
-}

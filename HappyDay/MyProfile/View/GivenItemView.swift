@@ -41,10 +41,7 @@ class GivenItemView: UIView {
         self.addSubview(productImage)
         
         productImage.snp.makeConstraints {
-            $0.leading.equalTo(20)
-            $0.top.equalTo(0)
-            $0.width.equalTo(80)
-            $0.height.equalTo(70)
+            $0.leading.trailing.top.bottom.equalTo(0)
         }
         productImage.image = img ?? UIImage.init(systemName: "heart")
     }
