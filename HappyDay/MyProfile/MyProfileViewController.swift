@@ -82,6 +82,7 @@ class MyProfileViewController: UIViewController, CustomViewController {
     let givenGiftCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 100, height: 100)
         
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.register(GivenItemCell.self, forCellWithReuseIdentifier: GivenItemCell.CellId)

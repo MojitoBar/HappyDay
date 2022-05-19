@@ -34,7 +34,6 @@ class GivenItemCell: UICollectionViewCell {
         contentView.addSubview(cellImage)
         cellImage.snp.makeConstraints {
             $0.top.bottom.leading.trailing.equalTo(0)
-            $0.height.equalTo(100)
         }
     }
 }
