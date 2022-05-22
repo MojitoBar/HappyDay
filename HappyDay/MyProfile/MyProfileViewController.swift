@@ -17,14 +17,10 @@ class MyProfileViewController: UIViewController, CustomViewController {
     let disposeBag = DisposeBag()
     
     // MARK: - view life cycle
-    override func loadView() {
-        super.loadView()
-        setLayout()
-        setTableView()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLayout()
+        setTableView()
         setRx()
     }
     

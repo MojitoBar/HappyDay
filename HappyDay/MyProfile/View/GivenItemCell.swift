@@ -21,7 +21,6 @@ class GivenItemCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setLayout()
-        print("asdf")
     }
     
     required init?(coder: NSCoder) {
