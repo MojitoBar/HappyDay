@@ -103,44 +103,32 @@ class MyProfileViewController: UIViewController, CustomViewController {
     
     // MARK: - Rx Setting
     func setRx() {
-        // 유저 이름
-        viewModel.nameObservable
-            .bind(to: name.rx.text)
+        viewModel.userObservable
+            .subscribe(onNext: { [weak self] user in
+                self?.birthdayLabel.text! = user.birthday
+                self?.name.text! = user.name
+                self?.profile.image! = user.profile ?? UIImage(systemName: "person")!
+        })
+        .disposed(by: disposeBag)
+        
+        viewModel.wishFObservable
+            .subscribe(onNext: { [weak self] wish in
+                self?.wishCards[0].productContent.text = wish.content
+                self?.wishCards[0].productImage.image = wish.image
+                self?.wishCards[0].productName.text = wish.name
+                self?.wishCards[0].productPrice.text = wish.price
+            })
             .disposed(by: disposeBag)
-        // 유저 생일
-        viewModel.birthdayObservable
-            .bind(to: birthdayLabel.rx.text)
+        
+        viewModel.wishSObservable
+            .subscribe(onNext: { [weak self] wish in
+                self?.wishCards[1].productContent.text = wish.content
+                self?.wishCards[1].productImage.image = wish.image
+                self?.wishCards[1].productName.text = wish.name
+                self?.wishCards[1].productPrice.text = wish.price
+            })
             .disposed(by: disposeBag)
-        // 유저 프로필
-        viewModel.profileObservable
-            .bind(to: profile.rx.image)
-            .disposed(by: disposeBag)
-        // 첫번째 위시리스트
-        viewModel.wishFirstContent
-            .bind(to: wishCards[0].productContent.rx.text)
-            .disposed(by: disposeBag)
-        viewModel.wishFirstImg
-            .bind(to: wishCards[0].productImage.rx.image)
-            .disposed(by: disposeBag)
-        viewModel.wishFirstName
-            .bind(to: wishCards[0].productName.rx.text)
-            .disposed(by: disposeBag)
-        viewModel.wishFirstPrice
-            .bind(to: wishCards[0].productPrice.rx.text)
-            .disposed(by: disposeBag)
-        // 두번째 위시리스트
-        viewModel.wishSecondContent
-            .bind(to: wishCards[1].productContent.rx.text)
-            .disposed(by: disposeBag)
-        viewModel.wishSecondImg
-            .bind(to: wishCards[1].productImage.rx.image)
-            .disposed(by: disposeBag)
-        viewModel.wishSecondName
-            .bind(to: wishCards[1].productName.rx.text)
-            .disposed(by: disposeBag)
-        viewModel.wishSecondPrice
-            .bind(to: wishCards[1].productPrice.rx.text)
-            .disposed(by: disposeBag)
+        
         // GivenItem CollectionView
         viewModel.givenItemObservable
             .debug()

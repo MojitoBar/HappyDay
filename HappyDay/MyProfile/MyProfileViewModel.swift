@@ -12,18 +12,10 @@ import RxRelay
 class MyProfileViewModel {
     
     // OUTPUT
-    var nameObservable: Observable<String>
-    var birthdayObservable: Observable<String>
-    var profileObservable: Observable<UIImage>
+    var userObservable: Observable<User>
     
-    var wishFirstImg: Observable<UIImage>
-    var wishFirstContent: Observable<String>
-    var wishFirstPrice: Observable<String>
-    var wishFirstName: Observable<String>
-    var wishSecondImg: Observable<UIImage>
-    var wishSecondContent: Observable<String>
-    var wishSecondPrice: Observable<String>
-    var wishSecondName: Observable<String>
+    var wishFObservable: Observable<WishItem>
+    var wishSObservable: Observable<WishItem>
     
     var givenItemObservable = Observable.of([UIImage.init(systemName: "star")!,
                                              UIImage.init(systemName: "star")!,
@@ -44,14 +36,7 @@ class MyProfileViewModel {
             .bind(to: user)
             .disposed(by: disposeBag)
         
-        nameObservable = user
-            .map { $0.name }
-        
-        birthdayObservable = user
-            .map { $0.birthday }
-        
-        profileObservable = user
-            .map { ($0.profile ?? UIImage.init(systemName: "heart"))! }
+        userObservable = user.asObservable()
         
         // MARK: - FetchWishItemData
         let wishList = BehaviorRelay<[WishItem]>(value: [])
@@ -60,22 +45,10 @@ class MyProfileViewModel {
             .bind(to: wishList)
             .disposed(by: disposeBag)
         
-        wishFirstName = wishList
-            .map { $0[0].name }
-        wishFirstImg = wishList
-            .map { ($0[0].image ?? UIImage.init(systemName: "person"))! }
-        wishFirstPrice = wishList
-            .map { $0[0].price }
-        wishFirstContent = wishList
-            .map { $0[0].content }
+        wishFObservable = wishList
+            .map { $0[0] }
         
-        wishSecondName = wishList
-            .map { $0[1].name }
-        wishSecondImg = wishList
-            .map { ($0[1].image ?? UIImage.init(systemName: "person"))! }
-        wishSecondPrice = wishList
-            .map { $0[1].price }
-        wishSecondContent = wishList
-            .map { $0[1].content }
+        wishSObservable = wishList
+            .map { $0[1] }
     }
 }

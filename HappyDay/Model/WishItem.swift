@@ -29,6 +29,6 @@ struct WishItem {
 }
 
 let dummyWishItems: [WishItem] = [
-    WishItem(name: "하트", content: "하트에 대한 소개입니다.", price: "3000원", image: UIImage.init(systemName: "haert")),
+    WishItem(name: "하트", content: "하트에 대한 소개입니다.", price: "3000원", image: UIImage.init(systemName: "heart")),
     WishItem(name: "별별", content: "별별에 대한 소개입니다.", price: "5000원", image: UIImage.init(systemName: "star")),
 ]
